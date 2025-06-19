@@ -1,0 +1,3 @@
+Продвинутый Python, приемы и хитрости
+
+https://stepik.org/course/226247/syllabus
