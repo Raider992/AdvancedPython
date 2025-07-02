@@ -10,11 +10,6 @@ import datetime
 # изменения, но есть возможность получить текущий возраст.
 
 class User:
-    first_name = ''
-    last_name = ''
-    middle_name = ''
-    birthday = datetime.date
-    _age = 0
 
     def __init__(self, first_name, middle_name, last_name, birthday):
         self.first_name = first_name
@@ -32,10 +27,11 @@ class User:
 
         self._age = today.year - year - ((today.month, today.day) < (month, day))
 
+    @property
     def get_age(self):
-        print(self._age)
+        return self._age
 
 
 me = User('Василий', 'Иванович', 'Иванов', '1992-08-18')
 
-me.get_age()
+print(me.get_age)

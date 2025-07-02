@@ -16,18 +16,17 @@
 
 
 class Road:
-    _length = 0
-    _width = 0
+    weight_for_1sqm = 25
+    thickness = 0.05
 
     def __init__(self, length, width):
         self._length = length
         self._width = width
 
-    def count_total_weight(self, weight_for_1sqm, thickness):
-        total_weight = self._width * self._length * weight_for_1sqm * thickness
-        return print('Общая масса: ', total_weight)
+    def count_total_weight(self):
+        return print('Общая масса: ', self._width * self._length * self.weight_for_1sqm * self.thickness)
 
 
 pathway = Road(5000, 20)
 
-pathway.count_total_weight(25, 0.05)
+pathway.count_total_weight()
