@@ -1,5 +1,6 @@
 import time
 
+
 # Задание 2.
 #
 # Создать класс TrafficLight (светофор)
@@ -17,31 +18,40 @@ import time
 # Проверить работу примера, создав экземпляр и вызвав описанный метод.
 
 class TrafficLight:
-    _COLOR_OPTIONS = ('Красный', 'Жёлтый', 'Зелёный')
+    __color = 'off'
+    __time = 0
 
-    __color = ''
+    def __init__(self):
+        self._COLOR_TIME_OPTIONS = {'Красный': 7, 'Жёлтый': 2, 'Зелёный': 10}
 
     def _set_color(self, color):
-
+        colors = self._COLOR_TIME_OPTIONS.keys()
         try:
-            index = self._COLOR_OPTIONS.index(color)
+            color in colors
             self.__color = color
-            print(f'Цвет светофора сейчас {self.__color}')
 
         except ValueError:
             print('Wrong color of the traffic light')
 
-    def running(self):
-        for cnt in range(3):
-            self._set_color('Красный')
-            time.sleep(7)
-            self._set_color('Жёлтый')
-            time.sleep(2)
-            self._set_color('Зелёный')
-            time.sleep(10)
-            self._set_color('Жёлтый')
-            time.sleep(2)
+    def _set_time(self, time):
+        times = self._COLOR_TIME_OPTIONS.values()
+        try:
+            time in times
+            self.__time = time
 
+        except ValueError:
+            print('Wrong color of the traffic light')
+
+    @property
+    def get_color(self):
+        return print(self.__color)
+
+    def running(self):
+
+        for cnt in self._COLOR_TIME_OPTIONS:
+            (self.__color, self.__time) = (cnt, self._COLOR_TIME_OPTIONS[cnt])
+            self.get_color
+            time.sleep(self.__time)
 
 
 tl = TrafficLight()
