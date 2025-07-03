@@ -33,14 +33,14 @@ class TrafficLight:
         except ValueError:
             print('Wrong color of the traffic light')
 
-    def _set_time(self, time):
+    def _set_time(self, activity_time):
         times = self._COLOR_TIME_OPTIONS.values()
         try:
-            time in times
-            self.__time = time
+            activity_time in times
+            self.__time = activity_time
 
         except ValueError:
-            print('Wrong color of the traffic light')
+            print('Wrong activity_time')
 
     @property
     def get_color(self):
